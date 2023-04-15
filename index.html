@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FastLint - AI Powered Linter for Your Code</title>
+  <meta property="og:title" content="FastLint">
+  <meta
+    property="og:description"
+    content="An AI-powered linter that continuously checks all of your code for problems."
+  >
+  <meta property="og:image" content="/conver.png">
+  <meta property="og:url" content="https://fastlint.com">
+  <meta property="og:type" content="website">
+  <title>
+    FastLint - AI Powered Linter for Your Code
+  </title>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
@@ -62,10 +72,13 @@
         and comprehensive reports, all tailored to your unique preferences.
       </p>
       <form class="mt-8" name="waitlist" method="POST" data-netlify="true">
-        <label class="block mb-4 font-bold text-xl">Join the waitlist</label>
+        <label class="block mb-4 font-bold text-xl" for="email">
+          Join the waitlist!
+        </label>
         <div class="flex flex-wrap mb-6">
           <input
             type="email"
+            name="email"
             placeholder="Enter your email"
             class="px-4 py-2 w-full rounded-md
               border border-solid text-white mb-8"
