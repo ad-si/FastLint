@@ -8,6 +8,14 @@ open-source checkers from crates.io.
 
 ## Install
 
+From [crates.io](https://crates.io/crates/fastlint):
+
+```sh
+cargo install fastlint
+```
+
+From a local checkout:
+
 ```sh
 cargo install --path .
 ```
