@@ -9,6 +9,7 @@ homepage = "https://github.com/ad-si/FastLint"
 readme = "readme.md"
 keywords = ["lint", "linter", "typos", "spellcheck", "cli"]
 categories = ["command-line-utilities", "development-tools"]
+exclude = ["website/", "makefile", "rustfmt.toml"]
 
 [dependencies]
 anyhow = "1"
