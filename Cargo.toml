@@ -5,6 +5,10 @@ edition = "2024"
 description = "Polyglot linter that bundles best-in-class open-source checkers — making vibe coding safer and faster."
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/ad-si/FastLint"
+homepage = "https://github.com/ad-si/FastLint"
+readme = "readme.md"
+keywords = ["lint", "linter", "typos", "spellcheck", "cli"]
+categories = ["command-line-utilities", "development-tools"]
 
 [dependencies]
 anyhow = "1"
