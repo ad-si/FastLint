@@ -6,7 +6,7 @@
   <meta property="og:title" content="FastLint">
   <meta
     property="og:description"
-    content="An AI-powered linter that continuously checks all of your code for problems."
+    content="A polyglot linter that bundles best-in-class open-source checkers — making vibe coding safer and faster."
   >
   <meta property="og:image" content="https://fastlint.com/cover.png" />
   <meta property="og:image:type" content="image/png" />
@@ -15,14 +15,14 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:image" content="https://fastlint.com/card.png">
   <title>
-    FastLint - AI Powered Linter for Your Code
+    FastLint - Polyglot Linter for Vibe Coding
   </title>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
   >
   <link
-    href="https://fonts.googleapis.com/css2?family=Fugaz+One:wght@400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fugaz+One:wght@400&family=JetBrains+Mono:wght@400;600&display=swap"
     rel="stylesheet"
   >
   <style>
@@ -48,67 +48,133 @@
       box-shadow: 0 0 50px 20px hsla(190, 74%, 59%, 0.2)
     }
 
-    button {
-      background-color: #0077B6;
+    pre, code {
+      font-family: 'JetBrains Mono', monospace;
     }
 
-    input[type=email] {
-      border-color: #00B4D8;
+    .install-block {
       background-color: hsl(0, 0%, 10%);
+      border: 1px solid #00B4D8;
+      border-radius: 0.375rem;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+    }
+
+    .install-block code {
+      color: #C7F2F9;
+    }
+
+    .check-card {
+      background-color: hsl(0, 0%, 12%);
+      border: 1px solid hsl(0, 0%, 20%);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+    }
+
+    .badge-error {
+      background-color: #7f1d1d;
+      color: #fecaca;
+    }
+
+    .badge-warning {
+      background-color: #78350f;
+      color: #fde68a;
     }
   </style>
 </head>
 <body class="px-4 md:px-8 lg:px-12">
-  <main class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto">
-    <div class="flex flex-col justify-center p-8">
-      <h1 class="text-4xl font-bold">FastLint</h1>
-      <h2 class="text-2xl mt-4 rainbow-text">
-        The AI-powered linter
-        that continuously checks all of your code for problems.
-      </h2>
-      <p class="mt-8 text-lg leading-relaxed">
-        Introducing FastLint:
-        A cutting-edge AI-driven linter
-        that tirelessly analyzes your code
-        across all languages and environments.
-        Experience the power of automated recommendations
-        and comprehensive reports, all tailored to your unique preferences.
-      </p>
-      <form class="mt-8" name="waitlist" method="POST" data-netlify="true">
-        <label class="block mb-4 font-bold text-xl" for="email">
-          Join the waitlist!
-        </label>
-        <div class="flex flex-wrap mb-6">
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            class="px-4 py-2 w-full rounded-md
-              border border-solid text-white mb-8"
-            required
-          >
-          <button
-            type="submit"
-            class="text-white rounded-md py-2 px-4 mt-4 md:mt-0"
-          >
-            Submit
-          </button>
+  <main class="max-w-6xl mx-auto">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div class="flex flex-col justify-center p-8">
+        <h1 class="text-4xl font-bold">FastLint</h1>
+        <h2 class="text-2xl mt-4 rainbow-text">
+          A polyglot linter that bundles best-in-class
+          open-source checkers — making vibe coding safer and faster.
+        </h2>
+        <p class="mt-8 text-lg leading-relaxed">
+          One command, every file, every language.
+          Rather than reimplementing analyses, FastLint stitches together
+          proven checkers from crates.io behind a single CLI
+          that respects <code>.gitignore</code> and skips binaries automatically.
+        </p>
+        <div class="mt-8">
+          <p class="font-bold text-xl mb-3">Install</p>
+          <pre class="install-block"><code>cargo install fastlint</code></pre>
+          <p class="mt-4 font-bold text-xl mb-3">Run</p>
+          <pre class="install-block"><code>fastlint                  <span class="text-gray-500"># check current directory</span>
+fastlint source/frontend  <span class="text-gray-500"># check a path</span>
+fastlint --json           <span class="text-gray-500"># JSON diagnostics</span></code></pre>
         </div>
-      </form>
-    </div>
-    <div class="flex justify-center items-center">
-      <img src="screenshot.png" alt="FastLint Screenshot" class="rounded-md">
-    </div>
+      </div>
+      <div class="flex justify-center items-center p-8">
+        <img src="screenshot.png" alt="FastLint Screenshot" class="rounded-md">
+      </div>
+    </section>
+
+    <section class="mt-20 px-8">
+      <h2 class="text-3xl font-bold mb-8">Bundled checks</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="check-card">
+          <div class="flex items-center gap-3 mb-2">
+            <code class="text-lg font-semibold">typos</code>
+            <span class="badge-warning px-2 py-0.5 rounded text-xs font-semibold">
+              warning
+            </span>
+          </div>
+          <p class="text-gray-300">
+            Source-code spell-checking powered by the
+            <a href="https://crates.io/crates/typos" class="underline">
+              <code>typos</code>
+            </a>
+            crate.
+          </p>
+        </div>
+        <div class="check-card">
+          <div class="flex items-center gap-3 mb-2">
+            <code class="text-lg font-semibold">merge-conflict</code>
+            <span class="badge-error px-2 py-0.5 rounded text-xs font-semibold">
+              error
+            </span>
+          </div>
+          <p class="text-gray-300">
+            Catches unresolved
+            <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> /
+            <code>=======</code> /
+            <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>
+            markers before they ship.
+          </p>
+        </div>
+        <div class="check-card">
+          <div class="flex items-center gap-3 mb-2">
+            <code class="text-lg font-semibold">trailing-whitespace</code>
+            <span class="badge-warning px-2 py-0.5 rounded text-xs font-semibold">
+              warning
+            </span>
+          </div>
+          <p class="text-gray-300">
+            Flags trailing spaces and tabs at the end of any line.
+          </p>
+        </div>
+      </div>
+      <p class="mt-8 text-gray-400">
+        More checkers are being added — see the
+        <a
+          href="https://github.com/ad-si/FastLint"
+          class="underline text-gray-200"
+        >GitHub repository</a>
+        for the current roster.
+      </p>
+    </section>
   </main>
 
-  <footer class="p-4 mt-8">
+  <footer class="p-4 mt-16">
     <p class="text-center text-gray-500">
-      <a href="https://twitter.com/FastLint">
-        Twitter
+      <a href="https://github.com/ad-si/FastLint">
+        GitHub
       </a>
       <span class="mx-4">|</span>
-      <a href="https://github.com/feramhq/FastLint-Issues">
-        GitHub
+      <a href="https://crates.io/crates/fastlint">
+        crates.io
       </a>
       <span class="mx-4">|</span>
       <a href="https://www.feram.io/imprint">
