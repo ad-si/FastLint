@@ -1,0 +1,25 @@
+[package]
+name = "fastlint"
+version = "0.1.0"
+edition = "2024"
+description = "Polyglot linter that bundles best-in-class open-source checkers — making vibe coding safer and faster."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/ad-si/FastLint"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+ignore = "0.4"
+rayon = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+typos = "0.10"
+typos-cli = "1"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
