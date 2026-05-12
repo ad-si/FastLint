@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="FastLint">
+  <meta
+    property="og:description"
+    content="An AI-powered linter that continuously checks all of your code for problems."
+  >
+  <meta property="og:image" content="https://fastlint.com/cover.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Cover image with short explanation" />
+  <meta property="og:url" content="https://fastlint.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:image" content="https://fastlint.com/card.png">
+  <title>
+    FastLint - AI Powered Linter for Your Code
+  </title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fugaz+One:wght@400&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    body {
+      background-color: #1E2125;
+      color: #FFFFFF;
+      padding: 2rem 0;
+    }
+
+    .rainbow-text {
+      background-image: linear-gradient(to right,
+        #0077B6, #00B4D8, #48CAE4, #90E0EF, #ADE8F4, #C7F2F9);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h1 {
+      font-family: 'Fugaz One', sans-serif;
+    }
+
+    img {
+      box-shadow: 0 0 50px 20px hsla(190, 74%, 59%, 0.2)
+    }
+
+    button {
+      background-color: #0077B6;
+    }
+
+    input[type=email] {
+      border-color: #00B4D8;
+      background-color: hsl(0, 0%, 10%);
+    }
+  </style>
+</head>
+<body class="px-4 md:px-8 lg:px-12">
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+    <div class="flex flex-col justify-center p-8">
+      <h1 class="text-4xl font-bold">FastLint</h1>
+      <h2 class="text-2xl mt-4 rainbow-text">
+        The AI-powered linter
+        that continuously checks all of your code for problems.
+      </h2>
+      <p class="mt-8 text-lg leading-relaxed">
+        Introducing FastLint:
+        A cutting-edge AI-driven linter
+        that tirelessly analyzes your code
+        across all languages and environments.
+        Experience the power of automated recommendations
+        and comprehensive reports, all tailored to your unique preferences.
+      </p>
+      <form class="mt-8" name="waitlist" method="POST" data-netlify="true">
+        <label class="block mb-4 font-bold text-xl" for="email">
+          Join the waitlist!
+        </label>
+        <div class="flex flex-wrap mb-6">
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            class="px-4 py-2 w-full rounded-md
+              border border-solid text-white mb-8"
+            required
+          >
+          <button
+            type="submit"
+            class="text-white rounded-md py-2 px-4 mt-4 md:mt-0"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="flex justify-center items-center">
+      <img src="screenshot.png" alt="FastLint Screenshot" class="rounded-md">
+    </div>
+  </main>
+
+  <footer class="p-4 mt-8">
+    <p class="text-center text-gray-500">
+      <a href="https://twitter.com/FastLint">
+        Twitter
+      </a>
+      <span class="mx-4">|</span>
+      <a href="https://github.com/feramhq/FastLint-Issues">
+        GitHub
+      </a>
+      <span class="mx-4">|</span>
+      <a href="https://www.feram.io/imprint">
+        Imprint
+      </a>
+    </p>
+  </footer>
+</body>
+</html>
