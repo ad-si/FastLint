@@ -5,9 +5,9 @@ use typos_cli::dict::BuiltIn;
 
 use crate::diagnostic::{Diagnostic, Severity};
 
-/// Source-code spell-check using the `typos` crate. The bundled dictionary
-/// is curated specifically to keep false-positives low — typos can run
-/// unattended on real codebases.
+/// Source-code spell-check using the `typos` crate. Reports candidate
+/// misspellings — false positives still happen (domain words, identifiers,
+/// vendored snippets), so diagnostics are phrased as suggestions, not facts.
 pub fn check(path: &Path, text: &str, out: &mut Vec<Diagnostic>) {
   let tokenizer = typos::tokens::Tokenizer::default();
   let dict = BuiltIn::new(Default::default());
@@ -23,11 +23,14 @@ pub fn check(path: &Path, text: &str, out: &mut Vec<Diagnostic>) {
           .collect::<Vec<_>>()
           .join(", ");
         (
-          format!("`{}` should be `{}`", typo.typo, suggestion),
+          format!(
+            "`{}` may be a typo (did you mean `{}`?)",
+            typo.typo, suggestion
+          ),
           Some(suggestion),
         )
       }
-      Status::Invalid => (format!("`{}` is misspelled", typo.typo), None),
+      Status::Invalid => (format!("`{}` may be a typo", typo.typo), None),
       // `Valid` should never reach us here, but be defensive.
       Status::Valid => continue,
     };
